@@ -3,7 +3,8 @@ module.exports = function(sequelize, DataTypes) {
     certId: {
       type: DataTypes.INTEGER,
       primaryKey: true,
-      autoIncrement: true
+      autoIncrement: true,
+      allowNull: false
     },
     certType: {
       type: DataTypes.STRING,
@@ -26,7 +27,7 @@ module.exports = function(sequelize, DataTypes) {
   });
 
   Certification.associate = function(models) {
-    models.Certification.belongsTo(models.Personnel, {
+    Certification.belongsTo(models.Personnel, {
       foreignKey: {
         allowNull: false
       }

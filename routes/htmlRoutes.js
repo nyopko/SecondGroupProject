@@ -32,7 +32,13 @@ module.exports = function(app) {
 
   // Load index page
   app.get("/crew", function(req, res) {
-    res.render("crew", {});
+    db.Personnel.findAll({
+      include: [db.Certification]
+    }).then(function(dbPersonnel) {
+      res.render("crew", {
+        Personnel: dbPersonnel
+      });
+    });
   });
 
   // Load index page

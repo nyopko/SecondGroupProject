@@ -107,15 +107,15 @@ module.exports = function(sequelize, DataTypes) {
   });
 
   Personnel.associate = function(models) {
-    models.Personnel.hasMany(models.Certification, {
-      onDelete: "CASCADE"
+    Personnel.hasMany(models.Certification, {
+      onDelete: "cascade"
     });
   };
 
   Personnel.associate = function(models) {
-    models.Personnel.belongsTo(models.Location, {
+    Personnel.belongsTo(models.Location, {
       foreignKey: {
-        allowNull: false
+        allowNull: true
       }
     });
   };
