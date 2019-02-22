@@ -99,11 +99,13 @@ module.exports = function(sequelize, DataTypes) {
   });
 
   Personnel.associate = function(models) {
-    models.Personnel.hasMany(models.Certification, {});
+    Personnel.hasMany(models.Certification, {
+      onDelete: "cascade"
+    });
   };
 
   Personnel.associate = function(models) {
-    models.Personnel.belongsTo(models.Location, {
+    Personnel.belongsTo(models.Location, {
       foreignKey: {
         allowNull: false
       }
@@ -111,7 +113,7 @@ module.exports = function(sequelize, DataTypes) {
   };
 
   Personnel.associate = function(models) {
-    models.Personnel.hasMany(models.MasterLog, {});
+    Personnel.hasMany(models.MasterLog, {});
   };
 
   return Personnel;

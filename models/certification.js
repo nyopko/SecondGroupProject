@@ -26,7 +26,7 @@ module.exports = function(sequelize, DataTypes) {
   });
 
   Certification.associate = function(models) {
-    models.Certification.belongsTo(models.Personnel, {
+    Certification.belongsTo(models.Personnel, {
       foreignKey: {
         allowNull: false
       }
