@@ -50,8 +50,15 @@ module.exports = function(app) {
     });
   });
 
-  // Render 404 page for any unmatched routes
-  app.get("*", function(req, res) {
-    res.render("404");
+  // crew page to get all certifications with PersonnelUid
+  app.get("/crew:PersonnelUid", function(req, res) {
+    db.Certification.findAll({}).then(function(dbCertification) {
+      res.render("crew ", dbCertification);
+    });
   });
 };
+//Render 404 page for any unmatched routes
+//   app.get("*", function(req, res) {
+//     res.render("404");
+//   )
+// };

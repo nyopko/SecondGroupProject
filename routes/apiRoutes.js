@@ -76,7 +76,8 @@ module.exports = function(app) {
     db.Certification.create({
       certType: req.body.certType,
       dateIssued: req.body.dateIssued,
-      expDate: req.body.expDate
+      expDate: req.body.expDate,
+      PersonnelUid: req.body.PersonnelUid
     }).then(function(dbCertification) {
       db.MasterLog.create({
         entryType: "CREATE",
